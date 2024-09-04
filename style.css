@@ -1,0 +1,567 @@
+@font-face {
+    font-family: 'Nico Moji'; /* Ім'я шрифту */
+    src: url('./fonts/nicomoji-regular-webfont.woff2') format('woff2'), /* шлях до файлу шрифту */
+         url('./fonts/nicomoji-regular-webfont.woff') format('woff'); /* альтернативний формат шрифту */
+    font-weight: normal; /* Товщина шрифту */
+    font-style: normal; /* Стиль шрифту (normal, italic тощо) */
+}
+
+
+.main__preloader {
+    height: 100vh;
+    background-color: #000;
+}
+
+.left__preloader {
+    position: absolute;
+    margin-top: 306px;
+}
+
+.right__preloader {
+    margin-right: 20px;
+    position: absolute;
+    margin-top: 300px;
+}
+
+.left__preloader {
+    animation: slideInLeft 1.2s ease forwards; /* Анімація випливання зліва */
+}
+
+.right__preloader {
+    animation: slideInRight 1.2s ease forwards; /* Анімація випливання справа */
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-300%); /* Початково поза екраном зліва */
+    }
+    to {
+        transform: translateX(0); /* Переміщення на місце */
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(300%); /* Початково поза екраном справа */
+    }
+    to {
+        transform: translateX(0); /* Переміщення на місце */
+    }
+}
+
+
+.main__preloader p {
+    margin-right: 17px;
+    z-index: 100;
+    position: absolute;
+    color: #F4F4F4;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.78px;
+    margin-top: 328px;
+}
+
+.main__daily {
+    background-image: url(./img/bg-daily.png);
+    height: 100vh;
+}
+
+.daily__day {
+    color: #F4F4F4;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.3px;
+    margin-top: 100px;
+    margin-bottom: 119px;
+}
+
+
+.daily__num {
+    color: #F4F4F4;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.92px;
+    margin-top: -155px;
+    margin-bottom: 20px;
+}
+
+.daily__num-bottom {
+    color: #FFF;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.9px;
+}
+
+.main__daily button {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    align-items: center;
+    width: 273px;
+    height: 51px;
+    border-radius: 5px;
+    border: 1px solid #FFF;
+    background: #FFF;
+
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
+
+.main__home {
+    background-color: #000;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home__logo {
+    margin-top: 30px;
+}
+
+.home__balance {
+    margin-top: 68px;
+    color: #F4F4F4;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.88px;
+}
+
+.home__info {
+    display: flex;
+    align-items: center;
+    width: 186px;
+    justify-content: space-around;
+    margin-top: 42px;
+    margin-bottom: 59px;
+
+}
+
+.home__info div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info__name {
+    color: #ADADAD;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.66px;
+}
+
+.info__num {
+    color: #ADADAD;
+    text-align: center;
+    font-family: "Nico Moji";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.84px;
+    margin-top: 10px;
+}
+
+.home__btn {
+    margin-top: 13px;
+    display: flex;
+    width: 335px;
+    height: 102px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid #4E4E4E;
+}
+
+nav {
+
+    width: 210px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+
+}
+
+
+nav button {
+    gap: 100px;
+    background: none;
+    border: none;
+}
+
+.nav__friend-btn {
+    margin: 0px 40px;
+}
+
+
+.main__friend {
+    background: #000;
+    height: 100vh;
+}
+
+
+.friend__bio-top {
+    color: #F4F4F4;
+    text-align: center;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-family: "Nico Moji";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.6px;
+    margin-top: 90px;
+}
+
+.friend__bio-center {
+    text-align: center;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-family: "Nico Moji";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.6px;
+}
+
+.friend__bio-bottom {
+    color: #F4F4F4;
+    text-align: center;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-family: "Nico Moji";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.6px;
+}
+
+.bio__friend {
+    margin-top: 90px;
+}
+
+.friend__num {
+    color: #F4F4F4;
+    text-align: center;
+    font-family: "Stalinist One";
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 12.8px;
+    margin-top: 44px;
+}
+
+.invite__friend {
+    margin-top: 44px;
+    width: 273px;
+    height: 51px;
+    border-radius: 5px;
+    border: 1px solid #FFF;
+    background: #FFF;
+
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
+.main__wallet {
+    background-color: #000;
+    height: 100vh;
+}
+
+.smile__wallet {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 104px;
+}
+
+.wallet__info {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.main__wallet input {
+    border-radius: 40px;
+    border: 1px solid #FFF;
+    background-color: #000;
+    padding-left: 19px;
+    color: #6E6E6E;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 281px;
+    height: 48px;
+    margin-bottom: 19px;
+    outline: none;
+}
+
+.main__wallet button {
+    border-radius: 40px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    width: 303px;
+    display: flex;
+    align-items: center;
+    height: 47px;
+
+}
+
+.main__wallet button p {
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-right: 7px;
+    margin-left: 119px;
+}
+
+
+
+.main__task {
+    background-color: #000;
+    height: 100vh;
+}
+
+.tasK__smile {
+    margin-top: 57px;
+    margin-bottom: 77px;
+}
+
+.task__block-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: auto;
+}
+
+.task__block-top {
+    display: flex;
+    align-items: center;
+}
+
+.task__block-top p {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 7px;
+}
+
+
+.task__bottom {
+    margin-top: 9px;
+    color: #ADADAD;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.task__block {
+    margin-top: 27px;
+    width: 282px;
+    display: flex;
+    align-items: center;
+}
+
+.task__arrow {
+}
+
+
+
+.main__chat {
+    background-color: #000;
+    height: 100vh;
+}
+
+.main__chat img{
+    height: 144px;
+    width: 113px;
+    margin-top: 27px;
+}
+
+.chat__info {
+    margin-top: 45px;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 308px;
+}
+
+.my__msg {
+    margin-left: auto;
+    margin-right: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 250px;
+}
+
+
+
+
+.username {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.massage {
+    color: #202020;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    border-radius: 42px 10px 100px 42px;
+    background: #F0F0F0;
+    padding: 10px 37px 10px 31px;
+    margin-top: 8px;
+
+}
+
+
+.ai__msg {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+
+.bot__name {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.bot__massage {
+    color: #202020;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    border-radius: 42px 10px 100px 42px;
+    background: #F0F0F0;
+    padding: 10px 37px 10px 31px;
+    margin-top: 8px;
+
+}
+
+.main__chat input {
+    border: none;
+    color: #6E6E6E;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100px;
+    background: none;
+}
+
+.chat {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #FFF;
+    border-radius: 42px;
+    width: 262px;
+    position: absolute;
+    bottom: 110px;
+}
