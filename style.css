@@ -361,6 +361,18 @@ nav button {
     outline: none;
 }
 
+.main__wallet .text__wallet {
+
+    text-align: center;
+    font-family: Montserrat;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
 .main__wallet button {
     border-radius: 40px;
     border: 1px solid #FFF;
@@ -384,6 +396,21 @@ nav button {
     margin-left: 119px;
 }
 
+.main__wallet .text__wallet.none {
+    display: none;
+}
+
+.main__wallet .input__wallet.none {
+    display: none;
+}
+
+.main__wallet .send__wallet.none {
+    display: none;
+}
+
+.main__wallet .resend__wallet.none {
+    display: none;
+}
 
 
 .main__task {
