@@ -213,7 +213,7 @@
 nav {
 
     width: 210px;
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     left: 50%;
     margin: 0 auto;
@@ -591,4 +591,73 @@ nav button {
     width: 262px;
     position: absolute;
     bottom: 110px;
+}
+
+
+.resend__wallet {
+    margin-top: 100px;
+}
+
+
+.main__wallet-connect {
+    background-color: #000;
+    height: 100vh;
+}
+
+.wallet__num {
+    margin-top: 106px;
+    border-radius: 37px;
+    border: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+    width: 158px;
+    height: 35px;
+}
+
+.wallet__num p {
+    margin-left: 9px;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.wallet__num img {
+    height: 18px;
+    margin-left: 27px;
+}
+
+.connect {
+    margin-top: 111px;
+    margin-bottom: 110px;
+}
+
+.reconnect {
+    border-radius: 40px;
+    border: 1px solid #FFF;
+    background: #FFF;
+
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 303px;
+    height: 51px;
+}
+
+.walletconnect__info {
+    margin-top: 33px;
+    color: #747474;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
