@@ -361,6 +361,12 @@ nav button {
     outline: none;
 }
 
+.main__wallet input.error{
+
+    border: 1px solid #ff0000;
+
+}
+
 .main__wallet .text__wallet {
 
     text-align: center;
@@ -396,21 +402,6 @@ nav button {
     margin-left: 119px;
 }
 
-.main__wallet .text__wallet.none {
-    display: none;
-}
-
-.main__wallet .input__wallet.none {
-    display: none;
-}
-
-.main__wallet .send__wallet.none {
-    display: none;
-}
-
-.main__wallet .resend__wallet.none {
-    display: none;
-}
 
 
 .main__task {
@@ -661,3 +652,13 @@ nav button {
     font-weight: 300;
     line-height: normal;
 }
+
+.main__wallet .none {
+    display: none;
+}
+
+.main__wallet-connect .none{
+    display: none;
+}
+
+

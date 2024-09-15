@@ -3,7 +3,7 @@
 
 //Firebase API init
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js'
-import { getFirestore, getDoc, setDoc, updateDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js'
+import { getFirestore, getDoc, setDoc, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js'
 
 const firebaseConfig = {
     apiKey: "AIzaSyB_8Ygs2gcWHkFAh1bPp-Kl8_yEwTBUe34",
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         home: document.querySelector('.main__home'),
         friend: document.querySelector('.main__friend'),
         wallet: document.querySelector('.main__wallet'),
+        reconnect: document.querySelector('.main__wallet-connect'),
         task: document.querySelector('.main__task'),
         chat: document.querySelector('.main__chat'),
 
@@ -112,8 +113,6 @@ function updateBalanceDisplay() {
 
 }
 
-updateBalanceDisplay();
-
 //DATE TIME
 const now = new Date()
 const today = Math.floor(now / (1000 * 60 * 60 * 24));
@@ -149,7 +148,7 @@ function updateDailyDisplay() {
 
 }
 
-updateDailyDisplay();
+
 
 
 let dailyDiff = today - lastDaily;
@@ -228,48 +227,61 @@ function updateTasksDisplay() {
 
 }
 
-updateTasksDisplay();
+
 
 //Wallet
+const navWalletBtn = document.querySelector('.nav__wallet-btn');
+navWalletBtn.setAttribute('data-target', 'reconnect');
+
+const mainWallet = document.querySelector('.main__wallet');
+const mainConnect = document.querySelector('.main__wallet-connect');
+
 const walletInput = document.querySelector('.input__wallet');
-const walletText = document.querySelector('.text__wallet');
-const walletConnect = document.querySelector('.send__wallet');
-const walletReconnect = document.querySelector('.resend__wallet');
+
+const walletText = document.querySelector('.main__wallet-connect .wallet__num p');
+walletText.textContent = `${wallet.slice(0,4)}...${wallet.slice(-2)}`;
+
+function checkWallet(adress) {
+
+    if (
+        (adress == '') ||
+        (adress.length != 48)
+    ) {return false;}
+
+    return true;
+}
 
 function updateWalletDisplay() {
 
-    if (wallet == '') {
+    if (checkWallet(wallet)) {
 
-        walletInput.classList.remove('none');
-        walletText.classList.add('none');
 
-        walletConnect.classList.remove('none');
-        walletReconnect.classList.add('none');
+        navWalletBtn.setAttribute('data-target', 'reconnect');
+
+        mainWallet.style.display = 'none';
+        mainConnect.style.display = 'block';
 
     }
     else {  
 
-        walletInput.classList.add('none');
+        navWalletBtn.setAttribute('data-target', 'wallet');
 
-        console.log(wallet);
-
-        walletText.textContent = wallet;
-        walletText.classList.remove('none');
-
-        walletConnect.classList.add('none');
-        walletReconnect.classList.remove('none');
-
+        mainConnect.style.display = 'none';
+        mainWallet.style.display = 'block';
     }
 
 }
 
-updateWalletDisplay();
 
-walletConnect.addEventListener('click', async () => {
+document.querySelector('.send__wallet').addEventListener('click', async () => {
 
-    if(walletInput.value != '') {
+    if(checkWallet(walletInput.value)) {
+
+        walletInput.classList.remove('error');
 
         wallet = walletInput.value;
+
+        walletText.textContent = `${wallet.slice(0,4)}...${wallet.slice(-2)}`;
 
         updateWalletDisplay();
 
@@ -278,13 +290,27 @@ walletConnect.addEventListener('click', async () => {
         });
 
     }
+    else {
+
+        walletInput.classList.add('error');
+
+    }
 
 })
 
-walletReconnect.addEventListener('click', () => {
+document.querySelector('.reconnect').addEventListener('click', () => {
 
-    wallet = '';
+    mainConnect.style.display = 'none';
+    mainWallet.style.display = 'block';
 
+})
+
+
+//STARTUP FUNCTIONS
+document.addEventListener('DOMContentLoaded', function() {
+
+    updateBalanceDisplay();
+    updateDailyDisplay();
+    updateTasksDisplay();
     updateWalletDisplay();
-
 })
