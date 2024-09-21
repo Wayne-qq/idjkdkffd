@@ -227,6 +227,84 @@ function updateTasksDisplay() {
 
 }
 
+const taskBlocks = document.querySelectorAll('.task__block');
+
+taskBlocks.forEach(task => {
+
+    let uncompletedSVG = task.querySelector('.task__arrow');
+    let completedSVG = task.querySelector('.task__tick');
+
+    const taskId = task.getAttribute('id');
+
+    if(tasks.includes(taskId)){
+
+        task.disabled = true;
+
+        uncompletedSVG.style.display = 'none';
+        completedSVG.style.display = 'block';
+
+    }
+    else {
+
+        let loadingSVG = task.querySelector('.task__loading');
+        let completed = false;
+
+        task.addEventListener('click', () => {
+
+            task.disabled = true;
+
+            if(task.hasAttribute('link')) {
+
+                completed = true;
+                
+                window.open(task.getAttribute('link'), "_blank");
+
+            }
+
+            if(task.hasAttribute('reqFriends')) {
+
+                if(friends >= task.getAttribute('reqFriends')) { 
+                    completed = true;
+                }
+                
+            }
+
+            uncompletedSVG.style.display = 'none';
+            loadingSVG.style.display = 'block';
+    
+        })
+    
+        loadingSVG.addEventListener('animationend', async () => {
+            
+            loadingSVG.style.display = 'none';
+
+            if (completed){
+
+                completedSVG.style.display = 'block';
+                
+                const price = parseInt(task.getAttribute('price'));
+
+                balance += price;
+                tasks.push(taskId);
+
+                updateBalanceDisplay();
+
+                await updateDoc(docRef, {
+                    balance: balance,
+                    tasks: tasks
+                }); 
+            }
+            else {
+
+                uncompletedSVG.style.display = 'block';
+                task.disabled = false;
+            }
+    
+        })
+
+    }
+})
+
 
 
 //Wallet
@@ -307,10 +385,7 @@ document.querySelector('.reconnect').addEventListener('click', () => {
 
 
 //STARTUP FUNCTIONS
-document.addEventListener('DOMContentLoaded', function() {
-
-    updateBalanceDisplay();
-    updateDailyDisplay();
-    updateTasksDisplay();
-    updateWalletDisplay();
-})
+updateBalanceDisplay();
+updateDailyDisplay();
+updateTasksDisplay();
+updateWalletDisplay();

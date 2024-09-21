@@ -662,3 +662,23 @@ nav button {
 }
 
 
+/* tasks annimation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.task__tick {
+    display: none;
+}
+
+.task__loading {
+    display: none;
+    
+    animation: rotate 2s linear;
+}
