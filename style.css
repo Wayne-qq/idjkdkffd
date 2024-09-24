@@ -346,8 +346,8 @@ nav button {
 
 .main__wallet input {
     border-radius: 40px;
-    border: 1px solid #FFF;
     background-color: #000;
+    border: none;
     padding-left: 19px;
     color: #6E6E6E;
     font-family: Montserrat;
@@ -358,6 +358,10 @@ nav button {
     width: 281px;
     height: 48px;
     margin-bottom: 19px;
+    outline: none;
+}
+
+.main__wallet input::placeholder {
     outline: none;
 }
 
@@ -436,7 +440,10 @@ nav button {
     line-height: normal;
     margin-left: 7px;
 }
-
+.main__task button{
+    background: none;
+    border: none;
+}
 
 .task__bottom {
     margin-top: 9px;
