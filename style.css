@@ -463,11 +463,9 @@ nav button {
     align-items: center;
 }
 
-.task__arrow {
-}
 
 
-
+/* chat */
 .main__chat {
     background-color: #000;
     height: 100vh;
@@ -491,44 +489,22 @@ nav button {
     max-width: 308px;
 }
 
-.my__msg {
+.chatbox {
+
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+
+}
+
+.user__msg {
     margin-left: auto;
     margin-right: 45px;
     display: flex;
     flex-direction: column;
     align-items: end;
-    margin-top: 250px;
+    padding-bottom: 8px;
 }
-
-
-
-
-.username {
-    color: #FFF;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-.massage {
-    color: #202020;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    border-radius: 42px 10px 100px 42px;
-    background: #F0F0F0;
-    padding: 10px 37px 10px 31px;
-    margin-top: 8px;
-
-}
-
 
 .ai__msg {
     margin-top: 20px;
@@ -537,11 +513,11 @@ nav button {
     display: flex;
     flex-direction: column;
     align-items: start;
+    padding-bottom: 8px;
 }
 
 
-
-.bot__name {
+.chatbox li .username {
     color: #FFF;
     text-align: center;
     font-family: Montserrat;
@@ -551,7 +527,7 @@ nav button {
     line-height: normal;
 }
 
-.bot__massage {
+.chatbox li .message {
     color: #202020;
     text-align: center;
     font-family: Montserrat;
@@ -560,38 +536,53 @@ nav button {
     font-weight: 400;
     line-height: normal;
 
-    border-radius: 42px 10px 100px 42px;
     background: #F0F0F0;
     padding: 10px 37px 10px 31px;
     margin-top: 8px;
 
 }
 
-.main__chat input {
+.chatbox .ai__msg .message{
+
+    border-radius: 10px 42px 42px 100px;
+
+}
+
+.chatbox .user__msg .message{
+
+    border-radius: 42px 10px 100px 42px;
+
+}
+
+.chat__input {
+    padding: 16px 20px;
+    display: flex;
+    border: 1px solid #FFF;
+    border-radius: 42px;
+    width: 300px;
+    position: absolute;
+    bottom: 110px;
+}
+
+.chat__input input {
     border: none;
+    outline: none;
+    resize: none;
+
+    width: 100%;
+    
     color: #6E6E6E;
-    text-align: center;
+    text-align: start;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 100px;
+    
     background: none;
 }
 
-.chat {
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #FFF;
-    border-radius: 42px;
-    width: 262px;
-    position: absolute;
-    bottom: 110px;
-}
-
-
+/* wallet */
 .resend__wallet {
     margin-top: 100px;
 }
