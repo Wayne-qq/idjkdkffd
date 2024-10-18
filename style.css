@@ -469,6 +469,8 @@ nav button {
 .main__chat {
     background-color: #000;
     height: 100vh;
+    position: absolute;
+    bottom: 0;
 }
 
 .main__chat img{
