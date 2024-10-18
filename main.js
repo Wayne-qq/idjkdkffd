@@ -383,117 +383,95 @@ document.querySelector('.reconnect').addEventListener('click', () => {
 
 })
 
-
-//CHAT
+// Existing code...
 const chatbox = document.querySelector('.chatbox');
 const chatInput = document.querySelector(".chat__input input");
 const sendButton = document.querySelector(".chat__input svg");
 
 const createChatLi = (message, className) => {
-
-    // Create message element
-
     const chatLi = document.createElement("li");
     chatLi.classList.add(className);
 
-    let chat_username = className === "user__msg" ? userName : "@Bionix AI"
+    let chat_username = className === "user__msg" ? userName : "@Bionix AI";
 
-    chatLi.innerHTML = `<p class="username">${chat_username}</p>\n<p class="message">${message}</p>`
+    chatLi.innerHTML = `<p class="username">${chat_username}</p>\n<p class="message">${message}</p>`;
 
     return chatLi;
-
-}
+};
 
 const keywords = {
-
     "hello": 10,
     "yarik": 100,
     "vitya": -100,
-
-}
+};
 
 const generateResponce = (userMessage) => {
-
     let userWords = userMessage.toLowerCase().split(/\s+/);
-    let score = 0; 
+    let score = 0;
 
     userWords.forEach(word => {
-
-
-        if(keywords[word] !== undefined) {
-
+        if (keywords[word] !== undefined) {
             score += keywords[word];
-
         }
-
     });
 
     balance += score;
-
     updateBalanceDisplay();
 
     updateDoc(docRef, {
         balance: balance,
     });
 
-
     if (score < -50) {
-        
         return `This is a terrible text, don't write like this again. \nAnd you get ${score} NIX`;
     }
 
     if (score >= -50 && score < 0) {
-
         return `I don't really like it, you get ${score} NIX`;
     }
 
     if (score == 0) {
-
         return `It's good, but you don't get any NIX`;
     }
 
     if (score > 0 && score < 20) {
-
         return `Cool, you get ${score} NIX`;
-
     }
-
-}
+};
 
 const handleChat = () => {
-
     const userMessage = chatInput.value.trim();
     chatInput.value = "";
 
-    if(!userMessage) return;
-    
-    console.log(userMessage);
+    if (!userMessage) return;
 
+    console.log(userMessage);
     chatbox.appendChild(createChatLi(userMessage, "user__msg"));
 
     let responce = balance >= 100 ? generateResponce(userMessage) : "Sorry, you must have at least 100 NIX on balance to chat";
-    
+
     setTimeout(() => {
-
-        //display thinking
+        // display thinking
         let responceChatLi = createChatLi("Thinking...", "ai__msg");
-
         chatbox.appendChild(responceChatLi);
 
-        setTimeout(()=> {
-
+        setTimeout(() => {
             responceChatLi.querySelector(".message").textContent = responce;
-
         }, 800);
-
     }, 600);
-    
-}
+};
 
+// Add event listener for send button
 sendButton.addEventListener("click", handleChat);
 
+// Add event listener for 'Enter' key press
+chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        handleChat();
+    }
+});
 
-//STARTUP FUNCTIONS
+// STARTUP FUNCTIONS
 updateBalanceDisplay();
 updateDailyDisplay();
 updateTasksDisplay();
